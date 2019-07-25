@@ -1,4 +1,7 @@
+
 import webbrowser, sys, pyperclip
+
+#this script will open a web browser to google maps with the address entered as an arguement when called or the address stored on the clipboard
 
 sys.argv # [mapit.py, '870', 'Valencia', 'St.']
 
