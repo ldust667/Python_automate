@@ -1,0 +1,48 @@
+#open file to strip data
+file1 = open(r'C:\Users\dsl5266\OneDrive - The Pennsylvania State University\Documents\H_used.txt', 'r')
+
+#var to hold stripped 
+data_stripped=''
+
+#loop through removing first 5 characters and adding to a variable
+for line in file1:
+	data_stripped+=line[5:]
+
+file1.close()
+
+#open new file and write variable with character removed
+f = open(r"C:\Users\dsl5266\OneDrive - The Pennsylvania State University\Documents\H_strip.txt", "w")
+f.write(data_stripped)
+f.close()
+
+#loop to grab the locations of dates that are in 2021
+count=0
+placement=[]
+
+#record the position of the dates with 2021
+for line in data_list:
+     if line.find("2021") != -1:
+             placement.append(count)
+     count+=1
+
+final_list=[]
+
+#grab the dates and usernames
+for obj in placement:
+     final_list.append(data_list[obj]+ " "+ data_list[obj+3])	
+
+
+#create a new file contain only the usernames who edited the personal drive in 2021
+f = open(r"C:\Users\dsl5266\OneDrive - The Pennsylvania State University\Documents\H_2021.txt", "w")
+
+str_final=''
+
+#converting list back into string to write to final file
+
+for obj in final_list:
+     str_final+= obj + "\n"
+f.write(str_final)
+f.close()
+
+
+
